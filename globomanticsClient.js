@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.engine("html", cons.underscore);
-app.set("view engin", "html");
+app.set("view engine", "html");
 app.set("views", "files/client");
 
 app.use("/", express.static("files/client"));
@@ -63,7 +63,7 @@ app.get("/authorize", (req, res) => {
   access_token = null;
   refresh_token = null;
   scope = null;
-  state = randomstring.generate();
+  state = randomString.generate();
   let authorizeUrl = buildUrl(authServer.authorizationEndpoint, {
     response_type: "code",
     scope: client.scope,
